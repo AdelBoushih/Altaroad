@@ -1,0 +1,196 @@
+<div #target class="test" id="target">
+  <div>
+    <form class="clr-form clr-form-compact">
+      <div class="clr-form-control clr-row">
+        <div class="clr-col-md-4 clr-col-sm-12">
+          <label
+            for="example"
+            class="clr-control-label clr-col-12 clr-col-md-12"
+            >Coordonnées Coin ( X )</label
+          >
+          <div class="clr-control-container clr-col-12 clr-col-md-6">
+            <div class="clr-input-wrapper">
+              <input
+                type="number"
+                placeholder="Example Input"
+                class="clr-input"
+                name="initialGridX"
+                [(ngModel)]="initialGridX"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="clr-col-md-4 clr-col-sm-12">
+          <label
+            for="example"
+            class="clr-control-label clr-col-12 clr-col-md-12"
+            >Coordonnées Coin ( Y )</label
+          >
+          <div class="clr-control-container clr-col-12 clr-col-md-6">
+            <div class="clr-input-wrapper">
+              <input
+                type="number"
+                placeholder="Example Input"
+                [(ngModel)]="initialGridY"
+                name="initialGridY"
+                class="clr-input"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="clr-col-md-4 clr-col-sm-12">
+          <label
+            for="example"
+            class="clr-control-label clr-col-12 clr-col-md-12"
+            >Vitesse de déplacement</label
+          >
+          <div class="clr-control-container clr-col-12 clr-col-md-6">
+            <div class="clr-input-wrapper">
+              <select
+                clrSelect
+                name="speed"
+                class="clr-select"
+                [(ngModel)]="speed"
+              >
+                <option value="350">Rapide</option>
+                <option value="640">Lent</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="main-title">Liste des Tondeuses:</h3>
+      <form [formGroup]="orderForm" novalidate>
+        <div
+          class="items-holder"
+          formArrayName="items"
+          *ngFor="let item of formData.controls; let i = index"
+        >
+          <span class="itemrank">{{ i + 1 }}</span>
+          <div class="clr-form-control clr-row" [formGroupName]="i">
+            <div class="clr-col-md-3 clr-col-sm-12">
+              <label
+                for="example"
+                class="clr-control-label clr-col-12 clr-col-md-12"
+                >Position Initiale ( X )</label
+              >
+              <div class="clr-control-container clr-col-12 clr-col-md-6">
+                <div class="clr-input-wrapper">
+                  <input
+                    type="number"
+                    placeholder="Position Initiale X"
+                    name="x"
+                    formControlName="x"
+                    class="clr-input"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="clr-col-md-3 clr-col-sm-12">
+              <label
+                for="example"
+                class="clr-control-label clr-col-12 clr-col-md-12"
+                >Position Initiale ( Y )</label
+              >
+              <div class="clr-control-container clr-col-12 clr-col-md-6">
+                <div class="clr-input-wrapper">
+                  <input
+                    type="number"
+                    placeholder="Position Initiale Y"
+                    name="y"
+                    formControlName="y"
+                    class="clr-input"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="clr-col-md-3 clr-col-sm-12">
+              <label
+                for="example"
+                class="clr-control-label clr-col-12 clr-col-md-12"
+                >Orientation Intiale</label
+              >
+              <div class="clr-control-container clr-col-12 clr-col-md-6">
+                <select
+                  clrSelect
+                  name="orientation"
+                  formControlName="orientation"
+                  class="clr-select"
+                >
+                  <option value="N">North</option>
+                  <option value="E">Est</option>
+                  <option value="S">South</option>
+                  <option value="W">West</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="clr-col-md-3 clr-col-sm-12">
+              <label
+                for="example"
+                class="clr-control-label clr-col-12 clr-col-md-12"
+                >Chaine d'instructions</label
+              >
+              <div class="clr-control-container clr-col-12 clr-col-md-6">
+                <div class="clr-input-wrapper">
+                  <input
+                    type="text"
+                    placeholder="Instructions"
+                    name="instruction"
+                    formControlName="instruction"
+                    class="clr-input"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button
+        type="button"
+        class="btn"
+        style="margin-top: 20px"
+        (click)="addItem()"
+        [disabled]="gameStarted"
+      >
+        Ajouter une nouvelle Tondeuse
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-success-outline"
+        style="margin-top: 20px"
+        (click)="start()"
+        [disabled]="gameStarted"
+      >
+        Commencer
+      </button>
+    </form>
+  </div>
+  <div class="game-info">
+    <div *ngFor="let item of tondeuseList; let i = index">
+      <span [className]="'tondeuse ' + 'item-' + i"></span
+      ><span>Tondeuse {{ i + 1 }}: </span> Position: ({{ item.x }},
+      {{ item.y }}) • Orientation: {{ item.orientation }}
+    </div>
+  </div>
+  <div class="error" *ngIf="error">
+    {{ errorMessage }}
+  </div>
+  <div>
+    <div class="container" role="main">
+      <div class="clr-row">
+        <div class="clr-col-12 overflow">
+          <table #table></table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <span id="close" (click)="closeToast()"> x </span>
+  {{ toastMessage }}
+</div>
+<!-- <clr-icon shape="applications" class="has-badge is-solid"></clr-icon>  <clr-icon shape="compass"></clr-icon>  -->

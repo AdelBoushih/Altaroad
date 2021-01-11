@@ -1,0 +1,186 @@
+table td {
+  width: 20px;
+  height: 20px;
+  transition: all 1s ease;
+  border: 1px solid rgb(189, 187, 187);
+  padding: 5px;
+  cursor: pointer;
+}
+table td:hover {
+  background: #ffeeff;
+}
+.active {
+  border-radius: 50%;
+}
+table td {
+  margin: 12px 12px 12px 12px;
+  padding: 12px 12px 12px 12px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+  *border-collapse: expression("separate", cellSpacing= "10px");
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.overflow {
+  overflow-x: overlay !important;
+}
+.error {
+  padding: 10px;
+  margin-top: 20px;
+  color: rgb(199, 68, 68);
+  font-weight: 600;
+  font-size: 16px;
+}
+.game-info {
+  padding: 10px;
+  margin-top: 20px;
+  color: rgb(31, 90, 218);
+  font-weight: 400;
+  font-size: 14px;
+}
+.toast {
+  display: none;
+  font-weight: 500;
+  position: fixed;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  padding: 10px;
+  bottom: 40px;
+  right: 40px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.5);
+  overflow-y: overlay;
+  max-height: 500px;
+}
+#close {
+  position: absolute;
+  font-weight: 600;
+  top: 3px;
+  right: 4px;
+}
+[class^="item-"] {
+  border-radius: 50%;
+  animation: pulse 0.5s infinite;
+  background: #29b2e9;
+}
+.tondeuse {
+  border-radius: 50%;
+  background: #29b2e9;
+}
+
+[class^="item-"]:hover {
+  transform: scale(1.2);
+}
+
+.item-0 {
+  border-radius: 50%;
+  background: rgb(43, 71, 231) !important;
+}
+.item-1 {
+  border-radius: 50%;
+  background: rgb(221, 153, 27) !important;
+}
+
+.item-2 {
+  border-radius: 50%;
+  background: rgb(9, 235, 129) !important;
+}
+
+.item-3 {
+  border-radius: 50%;
+  background: rgb(128, 7, 107) !important;
+}
+.item-4 {
+  border-radius: 50%;
+  background: rgb(56, 212, 42) !important;
+}
+.item-5 {
+  border-radius: 50%;
+  background: rgb(238, 54, 207) !important;
+}
+.item-6 {
+  border-radius: 50%;
+  background: rgb(177, 21, 55) !important;
+}
+.item-7 {
+  border-radius: 50%;
+  background: rgb(66, 223, 113) !important;
+}
+.item-8 {
+  border-radius: 50%;
+  background: rgb(105, 71, 31) !important;
+}
+.item-9 {
+  border-radius: 50%;
+  background: rgb(128, 7, 107) !important;
+}
+.item-10 {
+  border-radius: 50%;
+  background: rgb(58, 36, 54) !important;
+}
+.item-11 {
+  border-radius: 50%;
+  background: rgb(3, 167, 145) !important;
+}
+.item-12 {
+  border-radius: 50%;
+  background: rgb(229, 255, 0) !important;
+}
+.item-13 {
+  border-radius: 50%;
+  background: rgb(44, 3, 92) !important;
+}
+.item-14 {
+  border-radius: 50%;
+  background: rgb(209, 0, 28) !important;
+}
+.item-15 {
+  border-radius: 50%;
+  background: rgb(136, 133, 136) !important;
+}
+::ng-deep clr-select-container {
+  margin-top: 0.088rem !important;
+}
+.main-title {
+  padding-left: 5px;
+  border-left: 3px solid rgb(13, 90, 206);
+}
+.tondeuse {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+  margin-bottom: -2px;
+}
+.itemrank {
+  position: absolute;
+  color: rgb(13, 90, 206);
+  top: 30%;
+  left: -12px;
+}
+.items-holder {
+  margin-top: 15px;
+  border-left: 1px solid rgb(13, 90, 206);
+  padding-left: 2px;
+  position: relative;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

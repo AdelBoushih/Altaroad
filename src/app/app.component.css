@@ -1,0 +1,31 @@
+.avatar {
+  width: 20%;
+  height: auto;
+}
+.seperator {
+  width: 100px;
+  display: inline-block;
+}
+.badge {
+  background-color: #575656;
+  font-size: 14px;
+  padding: 8px 6px 8px 6px;
+}
+.header {
+  background-color: #575656;
+  display: flex;
+  justify-content: space-between;
+}
+.header span {
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 20px;
+  margin-top: 18px;
+}
+#target {
+  height: 100vh;
+  overflow: scroll;
+}
+.description {
+  text-align: justify;
+}
